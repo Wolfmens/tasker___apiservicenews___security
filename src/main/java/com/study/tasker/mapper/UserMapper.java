@@ -13,6 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
 
+    @Mapping(target = "roles", expression = "java(request.getRoles().stream().map(Role::from).toList())")
     User userRequestToUser(UserRequest request);
 
     @Mapping(source = "userId", target = "id")

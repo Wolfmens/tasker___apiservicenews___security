@@ -8,6 +8,8 @@ public interface UserService {
 
     Flux<User> findAll();
 
+    Mono<User> findByName(String name);
+
     Mono<User> findByID(String id);
 
     Mono<User> create(User user);

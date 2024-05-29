@@ -101,7 +101,7 @@ public class TaskServiceImpl implements TaskService {
                 .collectList()
                 .map(HashSet::new);
 
-       return Mono.zip(monoAuthor, monAssignee, monosObservers)
+        return Mono.zip(monoAuthor, monAssignee, monosObservers)
                 .map(data -> {
                     task.setAuthor(data.getT1());
                     task.setAssignee(data.getT2());
@@ -109,5 +109,10 @@ public class TaskServiceImpl implements TaskService {
 
                     return task;
                 });
+    }
+
+    @Override
+    public Mono<Void> deleteAll() {
+        return repository.deleteAll();
     }
 }

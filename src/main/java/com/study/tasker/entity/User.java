@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,5 +21,10 @@ public class User {
 
     private String name;
 
+    private String password;
+
     private String email;
+
+    @Field("roles")
+    private List<Role> roles = new ArrayList<>();
 }

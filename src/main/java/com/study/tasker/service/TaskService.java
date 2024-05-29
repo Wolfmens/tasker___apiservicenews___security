@@ -18,4 +18,5 @@ public interface TaskService {
 
     Mono<Void> deleteById(String id);
 
+    Mono<Void> deleteAll();
 }
